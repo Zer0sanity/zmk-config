@@ -26,23 +26,6 @@
         default = firmware;
 
         firmware = zmk-nix.legacyPackages.${system}.buildSplitKeyboard {
-          # name = "firmware";
-
-          # src = nixpkgs.lib.sourceFilesBySuffices self [
-          #   ".board"
-          #   ".cmake"
-          #   ".conf"
-          #   ".defconfig"
-          #   ".dts"
-          #   ".dtsi"
-          #   ".json"
-          #   ".keymap"
-          #   ".overlay"
-          #   ".shield"
-          #   ".yml"
-          #   "_defconfig"
-          # ];
-
           name = "adv360-pro";
           src = ./.;
           board = "adv360pro_%PART%";
