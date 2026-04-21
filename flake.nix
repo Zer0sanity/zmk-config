@@ -1,3 +1,7 @@
+# -- usage--
+# update the flake dependencies  '➜ nix run .#update'
+# build the new firmware         '➜ nix build'
+
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
@@ -39,13 +43,13 @@
             "_defconfig"
           ];
 
-          board = "kinesis_adv360_pro_%PART%";
-          shield = "adv360_pro_%PART%";
+          board = "adv360pro_%PART%";
+          shield = "";
 
           zephyrDepsHash = "sha256-13db6bDxuRDkXAGhSKx2Q/Lm9q7xfDs1kwER0PNJMVs=";
 
           config = "config";
-          extra_conf_sources = [ ./config/adv360.keymap ];
+          extra_conf_sources = [ ./config/adv360pro.keymap ];
 
           meta = {
             description = "ZMK firmware";
