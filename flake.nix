@@ -26,7 +26,7 @@
         default = firmware;
 
         firmware = zmk-nix.legacyPackages.${system}.buildSplitKeyboard {
-          name = "adv360-pro";
+          name = "adv360pro";
           src = ./.;
           board = "adv360pro_%PART%";
           shield = "";
