@@ -44,6 +44,9 @@
 
           zephyrDepsHash = "sha256-13db6bDxuRDkXAGhSKx2Q/Lm9q7xfDs1kwER0PNJMVs=";
 
+          config = "config";
+          extra_conf_sources = [ ./config/adv360.keymap ];
+
           meta = {
             description = "ZMK firmware";
             license = nixpkgs.lib.licenses.mit;
@@ -62,5 +65,5 @@
 }
 
 # Local Variables:
-# jinx-local-words: "cmake conf defconfig dts dtsi json keymap kinesis lilyinstarlight yml zmk"
+# jinx-local-words: "cmake conf config defconfig dts dtsi json keymap kinesis lilyinstarlight yml zmk"
 # End:
