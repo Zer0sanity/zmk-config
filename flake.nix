@@ -26,30 +26,30 @@
         default = firmware;
 
         firmware = zmk-nix.legacyPackages.${system}.buildSplitKeyboard {
-          name = "firmware";
+          # name = "firmware";
 
-          src = nixpkgs.lib.sourceFilesBySuffices self [
-            ".board"
-            ".cmake"
-            ".conf"
-            ".defconfig"
-            ".dts"
-            ".dtsi"
-            ".json"
-            ".keymap"
-            ".overlay"
-            ".shield"
-            ".yml"
-            "_defconfig"
-          ];
+          # src = nixpkgs.lib.sourceFilesBySuffices self [
+          #   ".board"
+          #   ".cmake"
+          #   ".conf"
+          #   ".defconfig"
+          #   ".dts"
+          #   ".dtsi"
+          #   ".json"
+          #   ".keymap"
+          #   ".overlay"
+          #   ".shield"
+          #   ".yml"
+          #   "_defconfig"
+          # ];
 
+          name = "adv360-pro";
+          src = ./.;
           board = "adv360pro_%PART%";
           shield = "";
+          config = "config";
 
           zephyrDepsHash = "sha256-13db6bDxuRDkXAGhSKx2Q/Lm9q7xfDs1kwER0PNJMVs=";
-
-          config = "config";
-          extra_conf_sources = [ ./config/adv360pro.keymap ];
 
           meta = {
             description = "ZMK firmware";
