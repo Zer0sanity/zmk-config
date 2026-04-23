@@ -33,17 +33,19 @@
           inherit zmk;
           # set firmware name
           name = "adv360pro";
-          # point it to out config folder
-          config = "config/adv360pro";
+          # src is the build tree location (this root)
           src = ./.;
+          # config is where config is
+          config = "config/adv360pro";
           # setup the board using %PATH% to build left and right
-          board = "adv360pro_%PART%";
+          board = "adv360pro_%PART%//zmk";
           # set hash
-          zephyrDepsHash = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
-
+          # zephyrDepsHash = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="; <- fake hash to force to fail build and give the right one
+          zephyrDepsHash = "sha256-yZd+C2k9Kb1TKzXS6rR3/Jcs3UAGeKmq0YwdylODRgs=";
         };
 
         flash = zmk-nix.packages.${system}.flash.override { inherit firmware; };
+        # '> nix run .#update'
         update = zmk-nix.packages.${system}.update;
       });
 

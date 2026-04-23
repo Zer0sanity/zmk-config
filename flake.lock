@@ -19,7 +19,25 @@
     "root": {
       "inputs": {
         "nixpkgs": "nixpkgs",
+        "zmk": "zmk",
         "zmk-nix": "zmk-nix"
+      }
+    },
+    "zmk": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1776277499,
+        "narHash": "sha256-Y4ad6/aMfnuSTGKu+/77n9kakJlWLQ5F7CD9eyb+oYo=",
+        "owner": "zmkfirmware",
+        "repo": "zmk",
+        "rev": "0331b7d16e80954b807917f9323e59ffc1e3b626",
+        "type": "github"
+      },
+      "original": {
+        "owner": "zmkfirmware",
+        "ref": "main",
+        "repo": "zmk",
+        "type": "github"
       }
     },
     "zmk-nix": {
