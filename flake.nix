@@ -1,22 +1,24 @@
-# -- usage--
-# update the flake dependencies  '➜ nix run .#update'
-# build the new firmware         '➜ nix build'
-
 {
   inputs = {
+    # use unstable
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-
+    # pull in the flake for building and stuff
     zmk-nix = {
       url = "github:lilyinstarlight/zmk-nix";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+    # pull in the main line zmk firmware
+    zmk = {
+      url = "github:zmkfirmware/zmk/main";
+      flake = false;
     };
   };
 
   outputs =
     {
-      self,
       nixpkgs,
       zmk-nix,
+      zmk,
     }:
     let
       forAllSystems = nixpkgs.lib.genAttrs (nixpkgs.lib.attrNames zmk-nix.packages);
@@ -26,19 +28,17 @@
         default = firmware;
 
         firmware = zmk-nix.legacyPackages.${system}.buildSplitKeyboard {
+          # inherit the main line zmk
+          inherit zmk;
+          # set firmware name
           name = "adv360pro";
-          src = ./.;
+          # point it to out config folder
+          src = ./config/adv360pro/.;
+          # setup the board using %PATH% to build left and right
           board = "adv360pro_%PART%";
-          shield = "";
-          config = "config";
+          # set hash
+          zephyrDepsHash = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
 
-          zephyrDepsHash = "sha256-13db6bDxuRDkXAGhSKx2Q/Lm9q7xfDs1kwER0PNJMVs=";
-
-          meta = {
-            description = "ZMK firmware";
-            license = nixpkgs.lib.licenses.mit;
-            platforms = nixpkgs.lib.platforms.all;
-          };
         };
 
         flash = zmk-nix.packages.${system}.flash.override { inherit firmware; };
@@ -52,5 +52,5 @@
 }
 
 # Local Variables:
-# jinx-local-words: "cmake conf config defconfig dts dtsi json keymap kinesis lilyinstarlight yml zmk"
+# jinx-local-words: "lilyinstarlight repo zmk zmkfirmware"
 # End:
