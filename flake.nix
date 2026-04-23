@@ -16,6 +16,7 @@
 
   outputs =
     {
+      self,
       nixpkgs,
       zmk-nix,
       zmk,
@@ -33,7 +34,8 @@
           # set firmware name
           name = "adv360pro";
           # point it to out config folder
-          src = ./config/adv360pro/.;
+          config = "config/adv360pro";
+          src = ./.;
           # setup the board using %PATH% to build left and right
           board = "adv360pro_%PART%";
           # set hash
@@ -48,7 +50,9 @@
       devShells = forAllSystems (system: {
         default = zmk-nix.devShells.${system}.default;
       });
+
     };
+
 }
 
 # Local Variables:
