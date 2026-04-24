@@ -1,5 +1,15 @@
 # usage
 # ➜ nix run .#update
+# ➜ nix build --option download-buffer-size 250000000
+# ➜ sudo nix run .#flash
+# keyboard in bootloaded mod+1
+# ➜ sudo mount /dev/sdd /mnt/left
+# ➜ sudo chown -R brian /mnt/left/
+# ➜ sudo umount /mnt/left
+# keyboard in bootloaded mod+3
+# ➜ sudo mount /dev/sdd /mnt/right
+# ➜ sudo chown -R brian /mnt/right/
+# ➜ sudo umount /mnt/right
 
 {
   inputs = {
