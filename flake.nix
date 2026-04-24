@@ -1,3 +1,6 @@
+# usage
+# ➜ nix run .#update
+
 {
   inputs = {
     # use unstable
