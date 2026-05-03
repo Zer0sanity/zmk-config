@@ -77,7 +77,7 @@
             bindings = <
                 &trans       &none        &none        &none        &none        &none        &none                                                            &none        &kp MINUS    &kp LBKT     &kp RBKT     &kp N9       &kp N0       &trans
                 &none        &none        &none        &none        &none        &none        &none                                                            &none        &none        &kp HOME     &kp UP       &kp END      &none        &none
-                &trans       &kp LGUI     &kp LALT     &kp LCTRL    &kp LSHFT    &none        &none        &trans       &trans       &trans       &trans       &none        &none        &kp LEFT     &kp DOWN     &kp RIGHT    &none        &none
+                &trans       &kp LSHFT    &kp LGUI     &kp LALT     &kp LCTRL    &none        &none        &trans       &trans       &trans       &trans       &none        &none        &kp LEFT     &kp DOWN     &kp RIGHT    &none        &none
                 &trans       &none        &none        &none        &none        &none                                  &trans       &trans                                 &kp PG_UP    &kp PG_DN    &none        &none        &none        &none
                 &none        &none        &none        &trans       &trans                    &trans       &trans       &trans       &trans       &trans       &trans                    &trans       &trans       &none        &none        &none
             >;
